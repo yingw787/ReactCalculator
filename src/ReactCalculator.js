@@ -62,7 +62,18 @@ class ReactCalculator extends Component {
     }
 
     _onInputButtonPressed(input) {
-        alert(input)
+        switch (typeof input) {
+            case 'number':
+                return this._handleNumberInput(input)
+        }
+    }
+
+    _handleNumberInput(number) {
+        let inputValue = (this.state.inputValue * 10) + number;
+
+        this.setState({
+            inputValue: inputValue
+        })
     }
 }
 
